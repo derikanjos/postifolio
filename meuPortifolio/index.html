@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Portfólio de Derik Alves - Desenvolvedor Full-Stack. Projetos em React Native, HTML, CSS e JavaScript." />
+    <title>Derik Alves || Portfólio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="particulas"></div>
+
+    <!-- Navegação -->
+    <nav class="navegacao">
+        <ul class="menu">
+            <li><a href="#inicio" class="menu-link">Início</a></li>
+            <li><a href="#sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#contato" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <main id="inicio" class="cabecalho">
+        <div>
+            <img src="image/baixados.png" alt="Foto de Derik Alves" class="foto-perfil" />
+        </div>
+        <h1>Derik Alves</h1>
+        <p class="cabecalho-sub-titulo">Desenvolvedor Full-Stack</p>
+    </main>
+
+    <!-- Sobre Mim -->
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Analista e Desenvolvedor de Sistemas com sólida formação pelo Centro Universitário Fundação de Ensino
+                Octávio Bastos (UNIFEOB), profissional de Logística e Tecnologia. Possui experiência em operações
+                logísticas, desenvolvimento de aplicações visuais, automação de processos com foco em eficiência e
+                controle de custos. Atuou em empresas de grande porte como Sylvamo e MAHLE METAL LEVE, desenvolvendo
+                painéis visuais, relatórios técnicos e melhorias nos fluxos operacionais. Conhecimentos em Excel (VBA),
+                Power BI, Front-End, SAP, fundamentos de computação em nuvem (AWS). Capaz de integrar áreas
+                operacionais e de tecnologia para geração de valor por meio de dados, análise e inovação.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <!-- Projeto Readify Plus -->
+            <div class="projetos-card">
+                <img src="image/projeto1.jfif" alt="Projeto Readify Plus" class="projetos-image" />
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Readify Plus</h3>
+                    <p class="paragrafo-projetos">
+                        Aplicativo desenvolvido em <strong>React Native</strong> durante a faculdade, com o objetivo de
+                        <strong>incentivar a leitura de forma simples e acessível</strong>. A interface foi projetada
+                        para garantir <strong>navegação intuitiva</strong> e <strong>experiência agradável ao
+                            usuário</strong>, oferecendo uma ampla coleção de livros para leitura, diversão e
+                        avaliação.
+                    </p>
+                    <ul>
+                        <li>Acesso a <strong>biblioteca completa</strong> de livros;</li>
+                        <li>Permite <strong>avaliações e comentários</strong> sobre as obras;</li>
+                        <li>Recomendações personalizadas por <strong>IA integrada</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Projeto Starbucks UI -->
+            <div class="projetos-card">
+                <img src="image/projeto2.jfif" alt="Projeto Starbucks UI" class="projetos-image" />
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Starbucks UI</h3>
+                    <p class="paragrafo-projetos">
+                        Interface inspirada no <strong>design oficial do Starbucks</strong>, criada para prática de
+                        <strong>front-end moderno</strong> com:
+                    </p>
+                    <ul>
+                        <li><strong>Design responsivo</strong> (Mobile-First);</li>
+                        <li>Componentização e reutilização de elementos;</li>
+                        <li>Animações e transições suaves para UX;</li>
+                        <li>Estrutura semântica para SEO.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Projeto Discord Clone -->
+            <div class="projetos-card">
+                <img src="image/projeto3.png" alt="Clone do Discord" class="projetos-image" />
+                <div class="caixa-texto-projetos">
+                    <h3 class="info-projetos">Clone do Discord</h3>
+                    <p class="paragrafo-projetos">
+                        Clone funcional da página principal do Discord com:
+                    </p>
+                    <ul>
+                        <li><strong>Layout fiel ao original</strong>;</li>
+                        <li>Design responsivo para todos os dispositivos;</li>
+                        <li>Componentização de seções para escalabilidade;</li>
+                        <li>Uso de <strong>HTML5, CSS3 e JavaScript</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contatos">
+        <h2 class="contatos-titulos">Entre em Contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome" required />
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" id="mensagem" rows="6" placeholder="Digite sua mensagem" required></textarea>
+            </div>
+            <button type="submit" class="button-form">Enviar via WhatsApp</button>
+        </form>
+    </section>
+
+    <!-- Botão Modo Dev -->
+    <button id="devMode" class="dev-button">&lt;/&gt;</button>
+
+    <!-- Canvas para Matrix -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Console Fake -->
+    <div id="devConsole" class="dev-console"></div>
+
+    <script>
+        const devButton = document.getElementById('devMode');
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        const devConsole = document.getElementById('devConsole');
+        const perfilImg = document.querySelector('.foto-perfil');
+
+        let hackerMode = false;
+        let drops = [];
+        let fontSize = 16;
+        let columns;
+
+        // Caminho da imagem nova no modo dev - ajuste conforme sua pasta/arquivo
+        const imgDev = 'image/perfildev.jfif';
+        // Guarda o src original para voltar depois
+        const imgOriginal = perfilImg.src;
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const lettersArr = letters.split("");
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = Math.floor(canvas.width / fontSize);
+            drops = Array(columns).fill(1);
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#ccff33";  // cor das letras matrix amarelo esverdeado
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                let text = lettersArr[Math.floor(Math.random() * lettersArr.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        let interval;
+
+        devButton.addEventListener('click', () => {
+            hackerMode = !hackerMode;
+
+            if (hackerMode) {
+                document.body.classList.add('hacker-mode');
+                canvas.style.display = 'block';
+                devConsole.style.display = 'block';
+
+                devConsole.innerHTML = `
+                    &gt; Ativando modo desenvolvedor...<br>
+                    &gt; Carregando Matrix...<br>
+                    &gt; Bem-vindo ao modo secreto!<br>
+                    &gt; Divirta-se, Dev!<br>
+                `;
+
+                interval = setInterval(drawMatrix, 50);
+
+                perfilImg.src = imgDev;
+
+            } else {
+                document.body.classList.remove('hacker-mode');
+                canvas.style.display = 'none';
+                devConsole.style.display = 'none';
+                clearInterval(interval);
+
+                perfilImg.src = imgOriginal;
+            }
+        });
+
+        function enviarWhats(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5519993235613';
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+            const mensagemFormatada = encodeURIComponent(texto);
+            const url = `https://wa.me/${telefone}?text=${mensagemFormatada}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
